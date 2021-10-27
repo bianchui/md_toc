@@ -56,13 +56,18 @@ function factor(opts ,count,current) {
 	 * 根据header创建目录内容
 	 */	
 	function create_toc(opts) {
+		opts._headers_text = {};
+		opts._current_text = null;
 		$(opts.documment_selector).find(':header').each(function() {
 			var level = parseInt(this.nodeName.substring(1), 10);
 			
+			opts._current_text = $(this).text()
 			_rename_header_content(opts,this,level);
 			
 			_add_header_node(opts,$(this));
 		});//end each
+		opts._headers_text = null;
+		opts._current_text = null;
 	}
 	
 	/*
@@ -108,7 +113,11 @@ function factor(opts ,count,current) {
 	 */	
 	function _add_header_node(opts ,header_obj) {
 		var id  = encode_id_with_array(opts,opts._headers);
+		opts._headers_text[id] = opts._current_text;
+		id = opts._current_text;
+		console.log("encode_id_with_array", id, opts, opts._headers)
 		var pid = get_parent_id_with_array(opts,opts._headers);
+		pid = opts._headers_text[pid];
 	  
       	// 设置锚点id
 		$(header_obj).attr('id',id);

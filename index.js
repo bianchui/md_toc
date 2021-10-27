@@ -92,7 +92,7 @@ function generator(pwd, source_file_name, dest_file_path, is_open, options) {
 					"parse_markdown": data
 				}
 
-				var final_html_content = new Buffer(template(data1))
+				var final_html_content = Buffer.from(template(data1))
 
 				log(dest_file_path)
 
