@@ -45,6 +45,7 @@ function factor(opts ,count,current) {
 	var str = '';
 	for(var i = count - 1;i > 0; i-- ) {
 		str += current * opts.step+'*';
+		current = 1;
 	}
 
 	return eval( str + '1' );

@@ -19,11 +19,11 @@
   },
   "preferGlobal": "true",
   "bin": {
-    "i5ting_toc": "bin/tocmd.js"
+    "md_toc": "bin/tocmd.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/i5ting/tocmd.npm.git"
+    "url": "https://github.com/bianchui/md_toc.git"
   },
   "author": "",
   "license": "ISC",
