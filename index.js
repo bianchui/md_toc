@@ -88,7 +88,7 @@ function generator(pwd, source_file_name, dest_file_path, is_open, options) {
 
 				var css_link = "ddsds"
 				var data1 = {
-					"title": "i5ting_ztree_toc:" + _file_name,
+					"title": _file_name,
 					"parse_markdown": data
 				}
 
