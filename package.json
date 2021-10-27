@@ -1,6 +1,6 @@
 {
-  "name": "md_toc",
-  "version": "1.1.5",
+  "name": "md2html_toc",
+  "version": "1.1.6",
   "description": "tocmd.npm:a npm wrapper of i5ting_ztree_toc",
   "keywords": [
     "doc",
@@ -19,7 +19,7 @@
   },
   "preferGlobal": "true",
   "bin": {
-    "md_toc": "bin/tocmd.js"
+    "md2html_toc": "bin/tocmd.js"
   },
   "repository": {
     "type": "git",
