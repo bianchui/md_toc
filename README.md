@@ -1,5 +1,7 @@
-i5ting_toc
+md2html_toc
 =========
+
+这是一个修改版本的 i5ting_toc，做了一些修改，更适合开发者使用
 
 [![npm version](https://badge.fury.io/js/i5ting_toc.svg)](http://badge.fury.io/js/i5ting_toc)
 
@@ -8,33 +10,34 @@ i5ting_toc  a node npm wrapper of i5ting_ztree_toc https://github.com/i5ting/i5t
 - [ruby版本tocmd](https://github.com/i5ting/tocmd.gem)
 - [node版本i5ting_toc](https://github.com/i5ting/tocmd.npm)
 
+
 ## Preview 
 
 ![](https://github.com/i5ting/i5ting_ztree_toc/blob/master/demo/3.png)
 
 ## Install 
 
-	npm install -g i5ting_toc
+	npm install -g md2html_toc
 	
 ## Usage
 
 ```
-➜  tocmd.npm git:(master) ✗ i5ting_toc -h
+$ md2html_toc -h
 
-  Usage: i5ting_toc  a node npm wrapper of i5ting_ztree_toc https://github.com/i5ting/i5ting_ztree_toc 
+  Usage: md2html_toc  a node npm wrapper of i5ting_ztree_toc https://github.com/i5ting/i5ting_ztree_toc 
 
   Options:
 
     -h, --help             output usage information
     -V, --version          output the version number
     -f, --file [filename]  default is README.md 
-		-o, --open             open in browser
+    -o, --open             open in browser
     -v, --verbose          打印详细日志
 ```
 
 这个版本的命令比较简单，只有一个`-f`参数，如果没有填写，默认使用`README.md`，常见用法
 
-	i5ting_toc -f sample.md -o
+	md2html_toc -f sample.md -o
 	
 ## Api Usages
 

@@ -1,7 +1,7 @@
 {
   "name": "md2html_toc",
-  "version": "1.1.6",
-  "description": "tocmd.npm:a npm wrapper of i5ting_ztree_toc",
+  "version": "1.1.7",
+  "description": "md2html_toc:a npm wrapper of i5ting_ztree_toc",
   "keywords": [
     "doc",
     "markdown",
@@ -45,5 +45,5 @@
     "gulp-watch": "^0.7.0",
     "mocha": "*"
   },
-  "homepage": "https://github.com/i5ting/tocmd.npm"
+  "homepage": "https://github.com/bianchui/md_toc"
 }
