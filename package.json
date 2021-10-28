@@ -1,6 +1,6 @@
 {
   "name": "md2html_toc",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "md2html_toc:a npm wrapper of i5ting_ztree_toc",
   "keywords": [
     "doc",

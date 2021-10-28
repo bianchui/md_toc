@@ -10,11 +10,11 @@ var jquery_ztree_toc_opts = {
         border: '0px none',
         left: '0px',
         top: '0px',
-				// 'overflow-x': 'hidden',
-				'height': $(window).height() + 'px'
+        // 'overflow-x': 'hidden',
+        height: '100%',
     }
 }
 var markdown_panel_style = {
-    'width':'70%',
-    'margin-left':'25%'
+    'width':'calc(100% - 326px)',
+    'margin-left':'326px'
 };
