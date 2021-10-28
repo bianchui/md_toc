@@ -2,10 +2,10 @@
 * https://github.com/i5ting/jQuery.zTree_Toc.js
 * Copyright (c) 2014 alfred.sang; Licensed MIT */
 ;(function($) {
-	function encode_id_with_array(opts, arr) {
+	function _encode_id_with_array(opts, arr) {
 		var result = 0;
 		for(var z = 0; z < arr.length; z++ ) {
-			result += factor(opts, arr.length - z ,arr[z]);
+			result += _factor(opts, arr.length - z ,arr[z]);
 		}
 		return result;
 	}
@@ -14,7 +14,7 @@
 	 * 1.1.1 = 1*100*100 + 1*100 + 1
 	 * 1.2.2 = 1*100*100 + 2*100 + 3
 	 */
-	function get_parent_id_with_array(opts, arr) {
+	function _get_parent_id_with_array(opts, arr) {
 		var result_arr = [];
 
 		for (var z = 0; z < arr.length; z++ ) {
@@ -25,13 +25,13 @@
 		
 		var result = 0;
 		for (var z = 0; z < result_arr.length; z++ ) {
-			result += factor(opts,result_arr.length - z,result_arr[z]);
+			result += _factor(opts,result_arr.length - z,result_arr[z]);
 		}
 		
 		return result;
 	}
 
-	function factor(opts, count, current) {
+	function _factor(opts, count, current) {
 		if (1 == count) {
 			return current;
 		}
@@ -48,7 +48,7 @@
 	/*
 	 * 根据header创建目录内容
 	 */
-	function create_toc(opts) {
+	function _create_toc(opts) {
 		opts._headers_text = {};
 		opts._current_text = null;
 		$(opts.documment_selector).find(':header').each(function() {
@@ -67,9 +67,9 @@
 	/*
 	 * 渲染ztree
 	 */
-	function render_with_ztree(opts) {
+	function _render_with_ztree(opts) {
 		var t = $(opts._zTree);
-		t = $.fn.zTree.init(t,opts.ztreeSetting,opts._header_nodes).expandAll(opts.is_expand_all);
+		t = $.fn.zTree.init(t, opts.ztreeSetting, opts._header_nodes).expandAll(opts.is_expand_all);
 		// alert(opts._headers * 88);
 		// $(opts._zTree).height(opts._headers  * 33 + 33);
 		
@@ -103,20 +103,20 @@
 	 * 给ztree用的header_nodes增加数据
 	 */
 	function _add_header_node(opts, header_obj) {
-		var id  = encode_id_with_array(opts, opts._headers);
+		var id = _encode_id_with_array(opts, opts._headers);
 		opts._headers_text[id] = opts._current_text;
 		id = opts._current_text;
-		var pid = get_parent_id_with_array(opts, opts._headers);
+		var pid = _get_parent_id_with_array(opts, opts._headers);
 		pid = opts._headers_text[pid];
 
 		// 设置锚点id
 		$(header_obj).attr('id', id);
 
-		log($(header_obj).text());
+		_log($(header_obj).text());
 		
 		opts._header_offsets.push($(header_obj).offset().top - opts.highlight_offset);
 		
-		log('h offset ='+( $(header_obj).offset().top - opts.highlight_offset ) );
+		_log('h offset ='+( $(header_obj).offset().top - opts.highlight_offset ) );
 		
 		opts._header_nodes.push({
 			id:id, 
@@ -131,7 +131,7 @@
 	/*
 	 * 根据滚动确定当前位置，并更新ztree
 	 */
-	function bind_scroll_event_and_update_postion(opts) {
+	function _bind_scroll_event_and_update_postion(opts) {
 		var timeout;
 		var highlight_on_scroll = function(e) {
 			if (timeout) {
@@ -166,14 +166,14 @@
 	/*
 	 * 初始化
 	 */
-	function init_with_config(opts) {
+	function _init_with_config(opts) {
 		opts.highlight_offset = $(opts.documment_selector).offset().top;
 	}
 	
 	/*
 	 * 日志
 	 */
-	function log(str) {
+	function _log(str) {
 		return;
 		if($.fn.ztree_toc.defaults.debug == true) {
 			console.log(str);
@@ -182,22 +182,22 @@
 
 	$.fn.ztree_toc = function(options) {
 		// 将defaults 和 options 参数合并到{}
-		var opts = $.extend({},$.fn.ztree_toc.defaults,options);
+		var opts = $.extend({}, $.fn.ztree_toc.defaults, options);
 		
 		return this.each(function() {
 			opts._zTree = $(this);
 			
 			// 初始化
-			init_with_config(opts);
+			_init_with_config(opts);
 			
 			// 创建table of content，获取元数据_headers
-			create_toc(opts);
+			_create_toc(opts);
 			
 			// 根据_headers生成ztree
-			render_with_ztree(opts);
+			_render_with_ztree(opts);
 			
 			// 根据滚动确定当前位置，并更新ztree
-			bind_scroll_event_and_update_postion(opts);
+			_bind_scroll_event_and_update_postion(opts);
 		});
 		// each end
 	}
@@ -207,7 +207,7 @@
 		_zTree: null,
 		_headers: [],
 		_header_offsets: [],
-		_header_nodes: [{ id:1, pId:0, name:"目录",open:true}],
+		_header_nodes: [{ id:1, pId:0, name:"目录", open:true }],
 		debug: true,
 		highlight_offset: 0,
 		highlight_on_scroll: true,
