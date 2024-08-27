@@ -3,7 +3,7 @@ md2html_toc
 
 这是一个修改版本的 i5ting_toc，做了一些修改，更适合开发者使用
 
-[![npm version](https://badge.fury.io/js/i5ting_toc.svg)](http://badge.fury.io/js/i5ting_toc)
+[![npm version](https://badge.fury.io/js/md2html_toc.svg)](http://badge.fury.io/js/md2html_toc)
 
 i5ting_toc  a node npm wrapper of i5ting_ztree_toc https://github.com/i5ting/i5ting_ztree_toc 
 
